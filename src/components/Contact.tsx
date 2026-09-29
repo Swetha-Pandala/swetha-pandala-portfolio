@@ -96,7 +96,7 @@ const Contact = () => {
           </div>
           <div className="contact-box">
             <h2>
-              Let&apos;s build <br /> intelligent systems with <span>{config.developer.fullName}</span>
+              Let&apos;s build <br /> intelligent systems <br /> with <span>{config.developer.fullName}</span>
             </h2>
             <h5>
               <MdCopyright /> {new Date().getFullYear()}
