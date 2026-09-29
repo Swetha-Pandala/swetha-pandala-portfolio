@@ -1,3 +1,4 @@
+import { handleResumeClick } from "./utils/resumeDownload";
 import { FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
@@ -92,6 +93,8 @@ const SocialIcons = () => {
         className="resume-button"
         href={config.resumeFile}
         download="Swetha_Pandala_Resume.pdf"
+        type="application/pdf"
+        onClick={handleResumeClick}
         data-cursor="disable"
       >
         <HoverLinks text="RESUME" />

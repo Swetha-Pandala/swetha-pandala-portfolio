@@ -1,3 +1,4 @@
+import { handleResumeClick } from "./utils/resumeDownload";
 import { config } from "../config";
 import "./styles/CallToAction.css";
 
@@ -8,6 +9,8 @@ const CallToAction = () => {
         <a
           href={config.resumeFile}
           download="Swetha_Pandala_Resume.pdf"
+        type="application/pdf"
+        onClick={handleResumeClick}
           className="cta-btn cta-btn-play"
           data-cursor="disable"
         >
