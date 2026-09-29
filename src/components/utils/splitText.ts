@@ -36,7 +36,7 @@ export default function setSplitText() {
       {
         autoAlpha: 1,
         scrollTrigger: {
-          trigger: para.parentElement?.parentElement,
+          trigger: para.parentElement?.parentElement ?? para,
           toggleActions: ToggleAction,
           start: TriggerStart,
         },
@@ -62,7 +62,7 @@ export default function setSplitText() {
       {
         autoAlpha: 1,
         scrollTrigger: {
-          trigger: title.parentElement?.parentElement,
+          trigger: title.parentElement?.parentElement ?? title,
           toggleActions: ToggleAction,
           start: TriggerStart,
         },

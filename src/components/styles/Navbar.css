@@ -81,3 +81,30 @@
     font-size: 18px;
   }
 }
+
+/* Four nav items need a little more room than the original three */
+@media only screen and (min-width: 1025px) {
+  .header ul {
+    column-gap: 52px;
+  }
+  .navbar-connect {
+    left: 32%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .header ul {
+    column-gap: 70px;
+  }
+  .navbar-connect {
+    left: 38%;
+  }
+}
+
+/* Four nav items need slightly tighter spacing between 500px and 900px */
+@media only screen and (min-width: 500px) and (max-width: 900px) {
+  .header ul {
+    column-gap: 24px;
+    font-size: 13px;
+  }
+}

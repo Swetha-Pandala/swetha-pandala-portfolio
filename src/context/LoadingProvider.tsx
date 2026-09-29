@@ -3,9 +3,10 @@ import {
   PropsWithChildren,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from "react";
-import Loading from "../components/Loading";
+import Loading, { setProgress } from "../components/Loading";
 
 interface LoadingType {
   isLoading: boolean;
@@ -17,31 +18,46 @@ export const LoadingContext = createContext<LoadingType | null>(null);
 
 export const LoadingProvider = ({ children }: PropsWithChildren) => {
   const [isLoading, setIsLoading] = useState(() => {
-    // Skip loading on mobile
+    if (typeof window === "undefined") return false;
     if (window.innerWidth <= 768) return false;
     return true;
   });
   const [loading, setLoading] = useState(0);
+  const started = useRef(false);
 
-  const value = {
-    isLoading,
-    setIsLoading,
-    setLoading,
-  };
+  const value = { isLoading, setIsLoading, setLoading };
+
   useEffect(() => {
-    // Auto-start animations on mobile since there's no 3D model
     if (window.innerWidth <= 768) {
       import("../components/utils/initialFX").then((module) => {
-        if (module.initialFX) {
-          setTimeout(() => {
-            module.initialFX();
-          }, 100);
-        }
+        setTimeout(() => module.initialFX?.(), 100);
       });
+      return;
     }
-  }, []);
 
-  useEffect(() => {}, [loading]);
+    if (started.current) return;
+    started.current = true;
+
+    const progress = setProgress(setLoading);
+    let cancelled = false;
+
+    const finish = () => {
+      if (cancelled) return;
+      progress.loaded();
+    };
+
+    if (document.readyState === "complete") {
+      setTimeout(finish, 600);
+    } else {
+      window.addEventListener("load", () => setTimeout(finish, 400), { once: true });
+      setTimeout(finish, 4000);
+    }
+
+    return () => {
+      cancelled = true;
+      progress.clear();
+    };
+  }, []);
 
   return (
     <LoadingContext.Provider value={value as LoadingType}>

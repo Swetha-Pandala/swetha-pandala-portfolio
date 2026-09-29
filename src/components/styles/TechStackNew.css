@@ -239,3 +239,24 @@
     margin-top: 3px;
   }
 }
+
+.techstack-aurora {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 55% at 18% 20%, rgba(194, 164, 255, 0.22) 0%, rgba(11, 8, 12, 0) 70%),
+    radial-gradient(55% 50% at 82% 70%, rgba(126, 92, 214, 0.2) 0%, rgba(11, 8, 12, 0) 72%),
+    radial-gradient(70% 70% at 50% 110%, rgba(194, 164, 255, 0.12) 0%, rgba(11, 8, 12, 0) 70%),
+    #0b080c;
+  filter: blur(2px);
+  animation: techstackDrift 22s ease-in-out infinite alternate;
+}
+
+@keyframes techstackDrift {
+  0% { transform: scale(1.05) translate3d(-1.5%, 0, 0); }
+  100% { transform: scale(1.14) translate3d(1.5%, -2%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .techstack-aurora { animation: none; }
+}

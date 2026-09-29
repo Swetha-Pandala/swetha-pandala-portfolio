@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
 
 :root {
   font-family: "Geist", sans-serif;
@@ -188,4 +187,19 @@ body {
   .techstack h2 {
     font-size: 40px;
   }
+}
+/* Portfolio shell colors — override the base template defaults */
+html,
+body,
+.main-body {
+  color: #eae5ec;
+  background-color: var(--backgroundColor);
+}
+
+/* Shared centered container for sections added on top of the original layout */
+.section-container {
+  width: var(--cWidth);
+  max-width: var(--cMaxWidth);
+  margin-left: auto;
+  margin-right: auto;
 }

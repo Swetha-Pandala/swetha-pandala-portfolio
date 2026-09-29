@@ -137,3 +137,12 @@ a.contact-social {
     width: calc(100% - 25px);
   }
 }
+
+/* Three-line closing statement needs a little breathing room above the year */
+.contact-box h2 {
+  line-height: 1.25;
+}
+
+.contact-box h5 {
+  margin-top: 1.4rem;
+}

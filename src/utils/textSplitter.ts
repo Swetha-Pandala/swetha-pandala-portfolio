@@ -132,6 +132,7 @@ export class TextSplitter {
         lineWrapper.className = linesClass;
         lineWrapper.style.display = "block";
         const firstItem = line[0];
+        if (!firstItem) return;
         firstItem.parentNode?.insertBefore(lineWrapper, firstItem);
         line.forEach((item) => {
           if (item.parentNode === lineWrapper.parentNode) {

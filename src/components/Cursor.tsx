@@ -29,7 +29,7 @@ const Cursor = () => {
         const target = e.currentTarget as HTMLElement;
         const rect = target.getBoundingClientRect();
 
-        if (element.dataset.cursor === "icons") {
+        if (element.dataset["cursor"] === "icons") {
           cursor.classList.add("cursor-icons");
 
           gsap.to(cursor, { x: rect.left, y: rect.top, duration: 0.1 });
@@ -37,7 +37,7 @@ const Cursor = () => {
           cursor.style.setProperty("--cursorH", `${rect.height}px`);
           hover = true;
         }
-        if (element.dataset.cursor === "disable") {
+        if (element.dataset["cursor"] === "disable") {
           cursor.classList.add("cursor-disable");
         }
       });

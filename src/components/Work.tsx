@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
 import { config } from "../config";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,10 +21,11 @@ const Work = () => {
       const rectLeft = document
         .querySelector(".work-container")!
         .getBoundingClientRect().left;
-      const rect = box[0].getBoundingClientRect();
-      const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
+      const firstBox = box[0] as HTMLElement;
+      const rect = firstBox.getBoundingClientRect();
+      const parentWidth = firstBox.parentElement!.getBoundingClientRect().width;
       let padding: number =
-        parseInt(window.getComputedStyle(box[0]).padding) / 2;
+        parseInt(window.getComputedStyle(firstBox).padding) / 2;
       translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
     }
 

@@ -361,3 +361,23 @@
     font-size: 18px;
   }
 }
+
+.loading-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: loadingMarquee 26s linear infinite;
+}
+
+.loading-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+@keyframes loadingMarquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-marquee-track { animation: none; }
+}
