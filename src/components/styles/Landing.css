@@ -609,3 +609,29 @@ h2.landing-info-h2 {
     display: none !important;
   }
 }
+
+/* Hero fix pass: clean right-side role block, no overlapping lines */
+@media screen and (min-width: 1025px) {
+  .landing-info {
+    left: 69%;
+    max-width: 29vw;
+    z-index: 12;
+  }
+  .landing-info h2 {
+    margin-top: 0.35em;
+    margin-left: 0;
+    font-size: clamp(20px, 1.7vw, 40px);
+    line-height: 1.2;
+  }
+  h2.landing-info-h2 {
+    margin: 0.2em 0 0;
+    font-size: clamp(26px, 2.3vw, 54px);
+    line-height: 1.15;
+    width: 100%;
+  }
+  .landing-intro {
+    right: auto;
+    left: 3%;
+    max-width: 26vw;
+  }
+}
