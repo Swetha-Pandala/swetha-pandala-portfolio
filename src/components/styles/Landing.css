@@ -653,3 +653,19 @@ h2.landing-info-h2 {
     padding-top: 120px !important;
   }
 }
+
+/* Keep the full name on one line on tablet/desktop */
+@media screen and (min-width: 769px) {
+  .landing-intro h1 {
+    white-space: nowrap;
+  }
+  .landing-intro h1 br {
+    display: none;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .landing-intro h1 {
+    font-size: clamp(30px, 2.6vw, 56px);
+    line-height: 1.1;
+  }
+}
