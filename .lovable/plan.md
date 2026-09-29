@@ -19,7 +19,7 @@ They show as the same small tag chips used now, not as a paragraph. If the longe
 It already opens https://www.linkedin.com/in/swetha-pandala/. It will be confirmed to open in a new tab with safe link settings. Its look doesn't change.
 
 ### 5. Footer
-The footer keeps the quote you approved just now: "Where software engineering meets intelligent systems." That is newer than the quote in this document. The line below it stays "© 2026 Swetha Pandala. All rights reserved." If you'd rather use "Building intelligent systems, one meaningful idea at a time.", tell me and I'll swap it.
+No change. The footer stays as it is now: "Where software engineering meets intelligent systems." and "© 2026 Swetha Pandala. All rights reserved."
 
 ### Testing
 Everything on your checklist will be checked in a browser at 1920, 1600, 1440, 1366, 1280, 1024, 768, 430 and 390 px:
