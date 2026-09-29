@@ -10,8 +10,8 @@ ABOUT, EXPERIENCE, WORK, RESOURCES and CONTACT are already in this order and alr
 
 ### 3. What I Do panels
 The existing Redoyanul click/hover expand behavior is kept exactly as it is. Only the skill tags inside each panel are replaced with your full lists:
-- AI ENGINEER: all 24 AI skills you listed, from Generative AI through Python.
-- FULL-STACK: all 28 full-stack skills you listed, from Java through Kafka.
+- AI ENGINEER (7 main skills): Generative AI, Agentic AI, RAG, LangChain, LangGraph, AWS Bedrock, LLM Evaluation.
+- FULL-STACK (7 main skills): Java, Spring Boot, Python, FastAPI, React, AWS, Kubernetes.
 
 They show as the same small tag chips used now, not as a paragraph. If the longer lists make the opened panel overflow, the tag spacing will be tightened so the panel doesn't jump.
 
