@@ -629,9 +629,4 @@ h2.landing-info-h2 {
     line-height: 1.15;
     width: 100%;
   }
-  .landing-intro {
-    right: auto;
-    left: 3%;
-    max-width: 26vw;
-  }
 }
