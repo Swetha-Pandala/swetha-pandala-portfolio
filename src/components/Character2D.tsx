@@ -1,41 +1,67 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import characterAsset from "../assets/swetha-character.png.asset.json";
+import frames from "../assets/character-frames.json";
 import "./styles/Character2D.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const FRAME_COUNT = frames.ring.length; // 64 frames, index 0 = looking up, clockwise
+const TAU = Math.PI * 2;
+const LERP = 0.26; // fast response (~35ms settle feel)
+const DEADZONE = 0.12; // share of the viewport around the face that means "eye contact"
+const FACE_Y = 0.3; // face centre as a share of the frame height
+
+const lerpAngle = (a: number, b: number, t: number) => {
+  let d = ((b - a + Math.PI) % TAU + TAU) % TAU - Math.PI;
+  return a + d * t;
+};
+
 const Character2D = () => {
   const stageRef = useRef<HTMLDivElement>(null);
-  const layerRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const stage = stageRef.current;
-    const layer = layerRef.current;
-    const image = imageRef.current;
-    const glow = glowRef.current;
-    if (!stage || !layer || !image || !glow) return;
+    const canvas = canvasRef.current;
+    if (!stage || !canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isCoarse = window.matchMedia("(pointer: coarse)").matches;
+    const staticOnly = reduceMotion || isCoarse;
 
-    gsap.to(stage, { opacity: 1, duration: 1.4, ease: "power2.out", delay: 0.4 });
+    // Preload: centre first, then the ring (skipped when static).
+    const center = new Image();
+    center.decoding = "async";
+    center.src = frames.center;
+    const ring: HTMLImageElement[] = staticOnly
+      ? []
+      : frames.ring.map((src) => {
+          const img = new Image();
+          img.decoding = "async";
+          img.src = src;
+          return img;
+        });
 
-    if (reduceMotion) return;
+    let drawn: HTMLImageElement | null = null;
+    const draw = (img: HTMLImageElement) => {
+      if (img === drawn || !img.complete || !img.naturalWidth) return;
+      if (canvas.width !== img.naturalWidth) {
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+      }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0); // exactly one frame, full opacity, no blending
+      drawn = img;
+    };
 
-    // Gentle idle float
-    const float = gsap.to(layer, {
-      y: "+=14",
-      duration: 3.4,
-      ease: "sine.inOut",
-      repeat: -1,
-      yoyo: true,
-    });
+    center.onload = () => {
+      draw(center);
+      gsap.to(stage, { opacity: 1, duration: 1.4, ease: "power2.out", delay: 0.4 });
+    };
 
-    // Scroll-driven depth: character eases back and fades as the hero leaves
     const scrollTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".landing-section",
@@ -45,53 +71,65 @@ const Character2D = () => {
         invalidateOnRefresh: true,
       },
     });
-    scrollTl.to(stage, { scale: 0.82, yPercent: 10, opacity: 0, ease: "none" });
+    scrollTl.to(stage, { opacity: 0, ease: "none" });
 
+    if (staticOnly) {
+      return () => {
+        scrollTl.scrollTrigger?.kill();
+        scrollTl.kill();
+      };
+    }
+
+    let pointerX = -1;
+    let pointerY = -1;
+    let angle = 0;
+    let hasAngle = false;
     let rafId = 0;
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
 
-    const onMove = (e: MouseEvent) => {
-      targetX = e.clientX / window.innerWidth - 0.5;
-      targetY = e.clientY / window.innerHeight - 0.5;
+    const onMove = (e: PointerEvent) => {
+      pointerX = e.clientX;
+      pointerY = e.clientY;
+    };
+    const onLeave = () => {
+      pointerX = -1;
     };
 
     const render = () => {
-      currentX += (targetX - currentX) * 0.06;
-      currentY += (targetY - currentY) * 0.06;
-
-      gsap.set(layer, {
-        rotateY: currentX * 11,
-        rotateX: -currentY * 8,
-        x: currentX * 34,
-        transformPerspective: 1100,
-        transformOrigin: "50% 60%",
-      });
-      gsap.set(image, {
-        x: currentX * 16,
-        y: currentY * 10,
-        scale: 1 + Math.abs(currentX) * 0.012,
-      });
-      gsap.set(glow, {
-        x: -currentX * 90,
-        y: -currentY * 60,
-        opacity: 0.55 + currentX * 0.12,
-      });
-
       rafId = requestAnimationFrame(render);
+      if (pointerX < 0) {
+        draw(center);
+        hasAngle = false;
+        return;
+      }
+      const rect = canvas.getBoundingClientRect();
+      const fx = rect.left + rect.width / 2;
+      const fy = rect.top + rect.height * FACE_Y;
+      const dx = pointerX - fx;
+      const dy = pointerY - fy;
+      const radius = Math.max(window.innerWidth, window.innerHeight) * DEADZONE;
+
+      if (Math.hypot(dx, dy) < radius) {
+        draw(center);
+        hasAngle = false;
+        return;
+      }
+      // 0 = straight up, clockwise on screen
+      const target = Math.atan2(dx, -dy);
+      angle = hasAngle ? lerpAngle(angle, target, LERP) : target;
+      hasAngle = true;
+      const idx = ((Math.round((angle / TAU) * FRAME_COUNT) % FRAME_COUNT) + FRAME_COUNT) % FRAME_COUNT;
+      const img = ring[idx];
+      if (img && img.complete) draw(img);
     };
 
-    if (!isCoarse) {
-      window.addEventListener("mousemove", onMove, { passive: true });
-      rafId = requestAnimationFrame(render);
-    }
+    window.addEventListener("pointermove", onMove, { passive: true });
+    document.documentElement.addEventListener("pointerleave", onLeave);
+    rafId = requestAnimationFrame(render);
 
     return () => {
-      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("pointermove", onMove);
+      document.documentElement.removeEventListener("pointerleave", onLeave);
       cancelAnimationFrame(rafId);
-      float.kill();
       scrollTl.scrollTrigger?.kill();
       scrollTl.kill();
     };
@@ -99,16 +137,9 @@ const Character2D = () => {
 
   return (
     <div className="character-stage" ref={stageRef} aria-hidden="true">
-      <div className="character-glow" ref={glowRef}></div>
-      <div className="character-layer" ref={layerRef}>
-        <img
-          ref={imageRef}
-          className="character-image"
-          src={characterAsset.url}
-          alt=""
-          decoding="async"
-          fetchPriority="high"
-        />
+      <div className="character-glow"></div>
+      <div className="character-layer">
+        <canvas ref={canvasRef} className="character-image" />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { TextSplitter } from "../../utils/textSplitter";
 import gsap from "gsap";
 import { lenis } from "../Navbar";
+import { setCareerTimeline } from "./careerTimeline";
 
 export function initialFX() {
   document.body.style.overflowY = "auto";
@@ -79,6 +80,8 @@ export function initialFX() {
 
   LoopText(landingText2, landingText3);
   LoopText(landingText4, landingText5);
+
+  setCareerTimeline();
 }
 
 function LoopText(Text1: TextSplitter, Text2: TextSplitter) {

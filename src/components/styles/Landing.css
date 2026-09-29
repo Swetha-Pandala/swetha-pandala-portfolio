@@ -601,3 +601,11 @@ h2.landing-info-h2 {
     white-space: normal !important;
   }
 }
+
+/* Loop-text partner lines are desktop-only; mobile shows one static line each */
+@media only screen and (max-width: 768px) {
+  .landing-h2-2,
+  .landing-h2-info-1 {
+    display: none !important;
+  }
+}

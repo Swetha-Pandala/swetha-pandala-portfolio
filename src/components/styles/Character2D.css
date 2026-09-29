@@ -36,19 +36,17 @@
   height: 70vh;
   display: flex;
   align-items: flex-end;
-  transform-style: preserve-3d;
-  will-change: transform;
 }
 
 .character-image {
-  height: 100%;
-  width: auto;
-  max-width: 34vw;
-  object-fit: contain;
-  object-position: bottom center;
+  width: min(48vw, calc(72vh * 900 / 810));
+  height: auto;
+  aspect-ratio: 900 / 810;
+  display: block;
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
   filter: drop-shadow(0 26px 60px rgba(0, 0, 0, 0.55))
     drop-shadow(0 0 42px rgba(194, 164, 255, 0.16));
-  will-change: transform;
 }
 
 @media (max-width: 1440px) {
@@ -56,7 +54,7 @@
     height: 64vh;
   }
   .character-image {
-    max-width: 32vw;
+    width: min(46vw, calc(68vh * 900 / 810));
   }
 }
 
