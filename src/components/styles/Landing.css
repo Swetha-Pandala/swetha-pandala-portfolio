@@ -582,3 +582,22 @@ h2.landing-info-h2 {
     font-size: clamp(42px, 2.8vw, 62px);
   }
 }
+
+/* Mobile: keep the role lines fully inside the viewport */
+@media only screen and (max-width: 768px) {
+  h2.landing-info-h2 {
+    width: 100% !important;
+    margin-left: 0 !important;
+    text-align: center;
+  }
+
+  .landing-h2-1,
+  .landing-h2-info,
+  .landing-h2-info-1,
+  .landing-h2-2 {
+    position: static !important;
+    width: 100%;
+    text-align: center;
+    white-space: normal !important;
+  }
+}
