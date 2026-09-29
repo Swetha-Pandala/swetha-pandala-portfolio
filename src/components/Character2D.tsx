@@ -100,6 +100,7 @@ const Character2D = () => {
       if (pointerX < 0) {
         draw(center);
         hasAngle = false;
+        currentIdx = -1;
         return;
       }
       const rect = canvas.getBoundingClientRect();
@@ -112,6 +113,7 @@ const Character2D = () => {
       if (Math.hypot(dx, dy) < radius) {
         draw(center);
         hasAngle = false;
+        currentIdx = -1;
         return;
       }
       // 0 = straight up, clockwise on screen
