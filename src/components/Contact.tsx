@@ -96,10 +96,10 @@ const Contact = () => {
           </div>
           <div className="contact-box">
             <h2>
-              Let&apos;s build <br /> intelligent systems <br /> with <span>{config.developer.fullName}</span>
+              Where software engineering <br /> meets <br /> <span>intelligent systems.</span>
             </h2>
             <h5>
-              <MdCopyright /> {new Date().getFullYear()}
+              <MdCopyright /> {new Date().getFullYear()} {config.developer.fullName}. All rights reserved.
             </h5>
           </div>
         </div>
