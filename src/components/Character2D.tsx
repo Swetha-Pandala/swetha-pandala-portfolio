@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FRAME_COUNT = frames.ring.length; // 64 frames, index 0 = looking up, clockwise
 const TAU = Math.PI * 2;
-const LERP = 0.26; // fast response (~35ms settle feel)
+const LERP = 0.18; // smooth, symmetric response
 const DEADZONE = 0.12; // share of the viewport around the face that means "eye contact"
 const FACE_Y = 0.3; // face centre as a share of the frame height
 
@@ -84,6 +84,7 @@ const Character2D = () => {
     let pointerY = -1;
     let angle = 0;
     let hasAngle = false;
+    let currentIdx = -1;
     let rafId = 0;
 
     const onMove = (e: PointerEvent) => {
@@ -117,8 +118,15 @@ const Character2D = () => {
       const target = Math.atan2(dx, -dy);
       angle = hasAngle ? lerpAngle(angle, target, LERP) : target;
       hasAngle = true;
-      const idx = ((Math.round((angle / TAU) * FRAME_COUNT) % FRAME_COUNT) + FRAME_COUNT) % FRAME_COUNT;
-      const img = ring[idx];
+      // hysteresis: only switch frame once the angle clearly passes the boundary
+      const pos = (((angle / TAU) * FRAME_COUNT) % FRAME_COUNT + FRAME_COUNT) % FRAME_COUNT;
+      let diff = pos - currentIdx;
+      if (diff > FRAME_COUNT / 2) diff -= FRAME_COUNT;
+      if (diff < -FRAME_COUNT / 2) diff += FRAME_COUNT;
+      if (currentIdx < 0 || Math.abs(diff) > 0.6) {
+        currentIdx = ((Math.round(pos) % FRAME_COUNT) + FRAME_COUNT) % FRAME_COUNT;
+      }
+      const img = ring[currentIdx];
       if (img && img.complete) draw(img);
     };
 
