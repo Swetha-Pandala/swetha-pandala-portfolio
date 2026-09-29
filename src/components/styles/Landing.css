@@ -630,3 +630,11 @@ h2.landing-info-h2 {
     width: 100%;
   }
 }
+
+/* Clip the rolling role words so outgoing/incoming lines never stack on top of each other */
+@media screen and (min-width: 769px) {
+  .landing-info h2 {
+    overflow: hidden;
+    padding-bottom: 0.08em;
+  }
+}
