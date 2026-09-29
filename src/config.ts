@@ -1,192 +1,332 @@
+import projectMultiAgent from "./assets/project-multi-agent.jpg";
+import projectDocumentIntelligence from "./assets/project-document-intelligence.jpg";
+import projectSwiftPrediction from "./assets/project-swift-prediction.jpg";
+import projectQuestionSimilarity from "./assets/project-question-similarity.jpg";
+
 export const config = {
-    developer: {
-        name: "Redoyanul",
-        fullName: "Redoyanul Haque",
-        title: "AI & Full-Stack Developer",
-        description: "AI & Full-Stack Developer building intelligent systems and modern web applications. Passionate about machine learning, deep learning, and creating next-gen autonomous agents."
+  developer: {
+    name: "Swetha",
+    fullName: "Swetha Pandala",
+    initials: "SP",
+    title: "AI Engineer & Full-Stack Developer",
+    description:
+      "Generative AI and Full-Stack Engineer specializing in agentic AI, RAG, LLM applications, Python, FastAPI, Java, Spring Boot and AWS.",
+  },
+  social: {
+    github: "Swetha-Pandala",
+    email: "swethapandala799@gmail.com",
+    location: "United States",
+  },
+  resumeFile: "/Swetha_Pandala_Resume.pdf",
+  about: {
+    title: "About Me",
+    description:
+      "I'm a Full Stack Software Engineer and Generative AI Developer with around 7 years of experience building scalable enterprise applications, AI-native systems and cloud platforms across financial services and healthcare. I design multi-agent and RAG architectures with LangChain, LangGraph and AWS Bedrock, and ship them behind production Python FastAPI and Java Spring Boot services. I care about grounded answers, measurable evaluation and clean systems — instrumenting agent workflows with LangSmith for tracing, accuracy, latency and cost. Alongside the AI work I build React and TypeScript interfaces, model relational and vector data stores, and deploy cloud-native workloads on AWS with Docker, Kubernetes and full CI/CD.",
+  },
+  experiences: [
+    {
+      position: "Software Engineer",
+      company: "MetLife",
+      period: "2024 - Present",
+      location: "Whippany, New Jersey",
+      description:
+        "Architecting multi-agent systems on AWS Bedrock with planner, retriever and executor agents orchestrated through LangGraph, grounded by Bedrock Knowledge Bases and OpenSearch Serverless, and exposed through FastAPI and Spring Boot services across enterprise financial platforms.",
+      responsibilities: [
+        "Designed stateful multi-agent orchestration with LangChain and LangGraph, including conditional routing and human-in-the-loop checkpoints",
+        "Built production RAG pipelines on Amazon Bedrock Knowledge Bases with OpenSearch Serverless vector collections for citation-backed answers",
+        "Implemented LangSmith tracing and automated LLM evals covering relevance, faithfulness, latency and cost before production promotion",
+        "Integrated GenAI capabilities into enterprise systems via Python FastAPI microservices and Java Spring Boot REST APIs on AWS",
+      ],
+      technologies: [
+        "AWS Bedrock",
+        "LangGraph",
+        "LangChain",
+        "LangSmith",
+        "RAG",
+        "OpenSearch Serverless",
+        "FastAPI",
+        "Spring Boot",
+        "React",
+      ],
     },
-    social: {
-        github: "red1-for-hek",
-        email: "redoyanul1234@gmail.com",
-        location: "Bangladesh"
+    {
+      position: "Software Engineer",
+      company: "Morgan Stanley",
+      period: "2022 - 2024",
+      location: "New York, New York",
+      description:
+        "Built Java and Spring Boot microservices alongside Python services for a high-volume financial platform, refactoring legacy monolith modules, adding asynchronous processing with Celery and Redis, and running everything on Docker, Kubernetes/EKS and Kafka-backed event pipelines.",
+      responsibilities: [
+        "Decomposed legacy Java monolith modules into Spring Boot and Python microservices, cutting average service startup time by 60%",
+        "Implemented Celery task queues with a Redis broker for scheduled reports, notifications and transaction retry logic",
+        "Built autonomous AI agents with tool use and multi-step reasoning, applying prompt engineering across Claude and OpenAI APIs",
+        "Automated CI/CD with Jenkins and GitHub Actions, reducing release cycle time by 45%",
+      ],
+      technologies: [
+        "Java",
+        "Spring Boot",
+        "Python",
+        "Celery",
+        "Redis",
+        "PostgreSQL",
+        "MongoDB",
+        "Docker",
+        "Kubernetes",
+        "Kafka",
+      ],
     },
-    about: {
-        title: "About Me",
-        description: "I am a self-taught AI & Full-Stack Developer from Bangladesh. I build intelligent systems, chatbots, and modern web applications. My expertise includes Machine Learning, Deep Learning, NLP, and Full-Stack Web Development with React, Node.js, and Python. Currently building next-gen AI Agents and JARVIS-like Personal Assistants. I have a competitive programming mindset and a deep passion for automation. Code is poetry, AI is the canvas."
+    {
+      position: "Java/Python Full Stack Developer",
+      company: "Optum",
+      period: "2020 - 2021",
+      location: "India",
+      description:
+        "Delivered full stack banking and healthcare analytics features with Spring Boot, Python and React.js, securing APIs with OAuth 2.0 and JWT and tuning PostgreSQL and MongoDB layers for 40% faster queries.",
+      responsibilities: [
+        "Built Spring Boot microservices and Python services using clean, layered architecture",
+        "Optimized data models and indexing across PostgreSQL and MongoDB",
+        "Deployed to AWS Elastic Beanstalk, RDS and S3 with Jenkins-driven CI/CD",
+      ],
+      technologies: ["Java", "Spring Boot", "Python", "React", "PostgreSQL", "AWS", "Redis"],
     },
-    experiences: [
-        {
-            position: "Learning Something New",
-            company: "Self-Development",
-            period: "2025 - Present",
-            location: "Bangladesh",
-            description: "Continuously exploring emerging technologies, researching advanced AI systems, and pushing the boundaries of what's possible in tech.",
-            responsibilities: [
-                "Researching cutting-edge AI and ML technologies",
-                "Experimenting with new frameworks and tools",
-                "Contributing to open-source projects",
-                "Building innovative personal projects"
-            ],
-            technologies: ["Research", "Innovation", "Open Source", "New Tech"]
-        },
-        {
-            position: "AI Engineer",
-            company: "Freelance & Projects",
-            period: "2025",
-            location: "Bangladesh",
-            description: "Developing intelligent AI systems, chatbots, and machine learning solutions. Building next-gen conversational AI agents and JARVIS-like personal assistants.",
-            responsibilities: [
-                "Building AI-powered chatbots and conversational agents",
-                "Developing machine learning models with TensorFlow and PyTorch",
-                "Working with LLMs and transformer architectures",
-                "Creating autonomous AI systems and automation tools"
-            ],
-            technologies: ["Python", "TensorFlow", "PyTorch", "LLMs", "NLP", "AI Agents"]
-        },
-        {
-            position: "Full-Stack Developer",
-            company: "Freelance & Projects",
-            period: "2024",
-            location: "Bangladesh",
-            description: "Built complete web applications from frontend to backend. Developed responsive UIs, RESTful APIs, and database solutions for various clients and projects.",
-            responsibilities: [
-                "Developing full-stack web applications using React and Node.js",
-                "Building RESTful APIs and integrating databases",
-                "Creating responsive and interactive user interfaces",
-                "Deploying and maintaining web applications"
-            ],
-            technologies: ["React", "Node.js", "MongoDB", "Express", "Next.js", "TypeScript"]
-        },
-        {
-            position: "Python Developer",
-            company: "Self-Taught & Projects",
-            period: "2023",
-            location: "Bangladesh",
-            description: "Dove deep into Python programming, building automation scripts, bots, and mastering the fundamentals of software development and problem-solving.",
-            responsibilities: [
-                "Learning Python programming and core concepts",
-                "Building automation scripts and Discord bots",
-                "Exploring data structures and algorithms",
-                "Participating in competitive programming"
-            ],
-            technologies: ["Python", "Automation", "Scripting", "Discord.py", "Problem Solving"]
-        },
-        {
-            position: "Graphic Designer",
-            company: "Freelance",
-            period: "2022",
-            location: "Bangladesh",
-            description: "Started my creative journey as a graphic designer, creating logos, banners, and visual content. This sparked my passion for technology and digital creation.",
-            responsibilities: [
-                "Designing logos and brand identity materials",
-                "Creating social media graphics and banners",
-                "Working with clients on creative projects",
-                "Learning design principles and visual aesthetics"
-            ],
-            technologies: ["Photoshop", "Illustrator", "Canva", "Figma", "Visual Design"]
-        },
-        {
-            position: "Microsoft Office",
-            company: "Begin Learning",
-            period: "2021",
-            location: "Bangladesh",
-            description: "Started my journey into the digital world by learning Microsoft Office tools. This foundational step introduced me to computers and sparked my curiosity for technology.",
-            responsibilities: [
-                "Learning Microsoft Word, Excel, and PowerPoint",
-                "Creating documents and presentations",
-                "Understanding basic computer operations",
-                "Building foundational digital skills"
-            ],
-            technologies: ["MS Word", "MS Excel", "MS PowerPoint", "Computer Basics"]
-        }
-    ],
-    projects: [
-        {
-            id: 1,
-            title: "Drishti",
-            category: "AI / LLM",
-            technologies: "Python, PyTorch, Transformers, FastAPI, React, MongoDB",
-            image: "/images/Drishti.png",
-            description: "Bangladesh's first intelligent advanced AI chatbot powered by a custom Large Language Model. Features natural language understanding, contextual conversations, and multilingual support including Bengali.",
-            link: "https://huggingface.co/red1-for-hek/drishti-ilm-x1"
-        },
-        {
-            id: 2,
-            title: "VoteChain",
-            category: "Blockchain",
-            technologies: "Solidity, Web3.js, React, Ethereum, IPFS, MetaMask, Node.js",
-            image: "/images/VoteChain.png",
-            description: "A decentralized election system built on blockchain technology ensuring transparent, tamper-proof, and verifiable voting. Features smart contracts for vote integrity and real-time result tracking.",
-            link: "https://github.com/red1-for-hek/smart-election-by-blockchain"
-        },
-        {
-            id: 4,
-            title: "Flood Spaces 2.0",
-            category: "AI / ML",
-            technologies: "Python, TensorFlow, Pandas, React, FastAPI, GIS",
-            image: "/images/FloodSpaces.png",
-            description: "Predicts flood risks across Bangladesh up to one month in advance and sends early alerts to help people prepare.",
-            link: "https://github.com/red1-for-hek/Flood-Spaces-2.0"
-        },
-        {
-            id: 5,
-            title: "Phoenix 3.0",
-            category: "AI Assistant",
-            technologies: "Python, Speech Recognition, PyAutoGUI, OpenAI API, Tkinter",
-            image: "/images/Phoenix3.0.png",
-            description: "A JARVIS-inspired personal AI desktop assistant. Controls system functions, manages tasks, answers queries, automates workflows, and provides voice-activated computing experience.",
-            link: "https://github.com/red1-for-hek/phoenix3.0"
-        },
-        {
-            id: 6,
-            title: "RedxChess",
-            category: "AI / Game Engine",
-            technologies: "Python, C++, Neural Networks, Bitboards, UCI Protocol",
-            image: "/images/RedxChess.png",
-            description: "A high-performance chess engine rated 3640 ELO. Features advanced search algorithms, neural network evaluation, and optimized bitboard representation for lightning-fast move generation.",
-            link: "/play"
-        },
-        {
-            id: 7,
-            title: "Prodesk",
-            category: "E-commerce",
-            technologies: "React, Node.js, MongoDB, Express, Stripe",
-            image: "/images/Prodesk.png",
-            description: "A complete e-commerce platform with secure checkout and smooth product browsing.",
-            link: "https://github.com/red1-for-hek/prodesk"
-        },
-        {
-            id: 8,
-            title: "HekTools",
-            category: "Security / Android",
-            technologies: "Kotlin, Android SDK, Firebase, Python, Encryption",
-            image: "/images/hektools.png",
-            description: "An advanced Android monitoring and security research tool. Features remote device management, activity logging, and encrypted data transmission for security testing purposes.",
-            link: ""
-        }
-    ],
-    contact: {
-        email: "redoyanul1234@gmail.com",
-        github: "https://github.com/red1-for-hek",
-        linkedin: "https://linkedin.com/in/red1-for-hek",
-        twitter: "https://x.com/red_1_ul",
-        facebook: "https://www.facebook.com/redoyanulhaque.hacker.official",
-        instagram: "https://www.instagram.com/red_1_ul"
+    {
+      position: "Web Application Developer",
+      company: "ValueMomentum",
+      period: "2020",
+      location: "India",
+      description:
+        "Developed reusable React and Angular UI components backed by Python and Java services, and tuned SQL across MySQL and PostgreSQL to cut reporting response times by 20–30%.",
+      responsibilities: [
+        "Built reusable front-end component libraries for enterprise applications",
+        "Implemented backend CRUD and workflow services integrated with MySQL and MongoDB",
+        "Supported AWS deployments and Jenkins CI/CD setup",
+      ],
+      technologies: ["React", "Angular", "JavaScript", "Python", "Java", "MySQL", "MongoDB"],
     },
-    skills: {
-        develop: {
-            title: "AI DEVELOPER",
-            description: "Building intelligent systems & AI solutions",
-            details: "Developing AI agents, chatbots, and machine learning models using Python, TensorFlow, and PyTorch. Specializing in LLMs, NLP, deep learning, and autonomous systems.",
-            tools: ["Python", "TensorFlow", "PyTorch", "OpenCV", "Scikit-learn", "LLMs", "NLP", "Deep Learning", "Chatbots", "AI Agents"]
+    {
+      position: "Java Developer",
+      company: "Abbott",
+      period: "2018 - 2020",
+      location: "India",
+      description:
+        "Built REST microservices in Java and Python over MySQL, MongoDB and Cassandra for clinical and transactional workflows, with PySpark ingestion pipelines processing 1M+ records and ELK/CloudWatch observability.",
+      responsibilities: [
+        "Designed Spring Boot and Flask REST APIs for analytics dashboards and client portals",
+        "Built Python and PySpark data ingestion and validation pipelines",
+        "Implemented logging, monitoring and alerting with CloudWatch and the ELK Stack",
+      ],
+      technologies: ["Java", "Spring Boot", "Python", "Flask", "PySpark", "Cassandra", "AWS"],
+    },
+  ],
+  projects: [
+    {
+      id: 1,
+      title: "Enterprise Multi-Agent Financial Assistant",
+      category: "Agentic AI / RAG",
+      technologies:
+        "AWS Bedrock AgentCore, Strands Agents, LangGraph, Bedrock Knowledge Bases, OpenSearch Serverless, LangSmith, Python, FastAPI",
+      image: projectMultiAgent,
+      description:
+        "A production-oriented multi-agent financial assistant with specialized retrieval, analysis and report-generation agents coordinated through LangGraph and grounded by enterprise RAG over financial documents. Answer quality, latency and cost are tracked with LangSmith tracing and automated evaluations.",
+      link: "",
+    },
+    {
+      id: 2,
+      title: "Document Intelligence Platform",
+      category: "RAG / Semantic Search",
+      technologies: "Python, LangChain, GPT-4, pgvector, PostgreSQL, FastAPI, AWS, React",
+      image: projectDocumentIntelligence,
+      description:
+        "A document intelligence and semantic search platform enabling contextual question-answering across 500K+ enterprise documents and records, with grounded responses, secure data handling, an AWS deployment and a React frontend.",
+      link: "",
+    },
+    {
+      id: 3,
+      title: "Swift Transaction Prediction Engine",
+      category: "NLP / Fine-Tuning",
+      technologies: "Python, GPT-2, Hugging Face Transformers, Apache Cassandra, FuzzyWuzzy, NLP",
+      image: projectSwiftPrediction,
+      description:
+        "A transaction-status prediction and natural-language query system built on a fine-tuned GPT-2 model over historical financial transaction data, with fuzzy query matching and Cassandra-backed storage.",
+      link: "",
+    },
+    {
+      id: 4,
+      title: "Quora Question Similarity",
+      category: "NLP / Machine Learning",
+      technologies: "Python, Logistic Regression, TF-IDF, GloVe, NLP, Scikit-learn",
+      image: projectQuestionSimilarity,
+      description:
+        "A semantic similarity classifier trained on more than 400K question pairs, reaching a log-loss score of 0.284 using TF-IDF weighted GloVe embeddings.",
+      link: "",
+    },
+  ],
+  education: [
+    {
+      degree: "Doctorate in Business Administration, Applied Artificial Intelligence",
+      school: "Belhaven University",
+      meta: "Jackson, MS",
+      period: "Expected 2029",
+    },
+    {
+      degree: "Master's in Information Systems",
+      school: "University of Memphis",
+      meta: "GPA 3.8 / 4.0",
+      period: "Dec 2022",
+    },
+    {
+      degree: "Bachelor's in Computer Science and Engineering",
+      school: "JNTUH, Hyderabad",
+      meta: "GPA 9.0 / 10",
+      period: "Aug 2020",
+    },
+  ],
+  certifications: [
+    { name: "AWS Certified Developer – Associate", year: "2024" },
+    { name: "Java Programming Certificate", year: "2021" },
+    { name: "HTML, CSS and JavaScript for Web Developers", year: "2020" },
+    { name: "Python Programming Certificate", year: "2020" },
+  ],
+  resources: [
+    {
+      category: "Professional Profiles",
+      items: [
+        {
+          title: "GitHub Profile",
+          note: "Open source work and engineering projects",
+          type: "Profile",
+          url: "https://github.com/Swetha-Pandala",
         },
-        design: {
-            title: "FULL-STACK",
-            description: "Modern web development & scalable applications",
-            details: "Building responsive and performant web applications using React, Next.js, Node.js, and databases. Creating seamless user experiences with modern UI/UX principles.",
-            tools: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB", "PostgreSQL", "TailwindCSS", "REST APIs", "Docker", "Git"]
-        }
-    }
+        {
+          title: "LinkedIn Profile",
+          note: "Professional network and career updates",
+          type: "Profile",
+          url: "https://www.linkedin.com/in/swetha-pandala/",
+        },
+      ],
+    },
+    {
+      category: "Learning Resources",
+      items: [
+        {
+          title: "Kaggle",
+          note: "Data science competitions and datasets",
+          type: "Platform",
+          url: "https://kaggle.com/",
+        },
+        {
+          title: "DeepLearning.AI",
+          note: "World-class AI education and specializations",
+          type: "Courses",
+          url: "https://www.deeplearning.ai/",
+        },
+        {
+          title: "Fast.ai",
+          note: "Practical, accessible deep learning",
+          type: "Courses",
+          url: "https://www.fast.ai/",
+        },
+        {
+          title: "Khan Academy AI",
+          note: "AI in personalized education",
+          type: "Learning",
+          url: "https://www.khanacademy.org/khan-labs",
+        },
+      ],
+    },
+    {
+      category: "Industry Resources",
+      items: [
+        {
+          title: "OpenAI Blog",
+          note: "Latest updates and research from OpenAI",
+          type: "Blog",
+          url: "https://openai.com/blog",
+        },
+        {
+          title: "Google DeepMind",
+          note: "Research and breakthroughs from DeepMind",
+          type: "Research",
+          url: "https://deepmind.google/",
+        },
+        {
+          title: "Towards Data Science",
+          note: "Data science and AI articles",
+          type: "Publication",
+          url: "https://towardsdatascience.com/",
+        },
+      ],
+    },
+    {
+      category: "AI Research & Resources",
+      items: [
+        {
+          title: "Hugging Face",
+          note: "Hub for state-of-the-art models and datasets",
+          type: "Models",
+          url: "https://huggingface.co/",
+        },
+        {
+          title: "Papers with Code",
+          note: "Latest AI research linked to implementations",
+          type: "Papers",
+          url: "https://paperswithcode.com/",
+        },
+        {
+          title: "PyTorch Framework",
+          note: "Leading deep learning framework for research",
+          type: "Framework",
+          url: "https://pytorch.org/",
+        },
+      ],
+    },
+  ],
+  contact: {
+    email: "swethapandala799@gmail.com",
+    github: "https://github.com/Swetha-Pandala",
+    linkedin: "https://www.linkedin.com/in/swetha-pandala/",
+  },
+  skills: {
+    develop: {
+      title: "AI ENGINEER",
+      description: "Generative and agentic AI systems in production",
+      details:
+        "Designing multi-agent orchestration and LLM applications with LangChain, LangGraph and AWS Bedrock. Building RAG pipelines over vector retrieval, serving them through FastAPI, and measuring quality with LLM evaluation and LangSmith observability.",
+      tools: [
+        "Generative AI",
+        "Agentic Systems",
+        "RAG",
+        "LLM Applications",
+        "Multi-Agent Orchestration",
+        "LangChain",
+        "LangGraph",
+        "AWS Bedrock",
+        "FastAPI",
+        "Vector Retrieval",
+        "LLM Evals",
+        "Observability",
+      ],
+    },
+    design: {
+      title: "FULL-STACK",
+      description: "Scalable enterprise applications end to end",
+      details:
+        "Building microservices in Java and Spring Boot alongside Python and FastAPI, backed by well-modelled relational and NoSQL databases, with React and TypeScript interfaces on top and AWS, Docker, Kubernetes and CI/CD underneath.",
+      tools: [
+        "Java",
+        "Spring Boot",
+        "Python",
+        "FastAPI",
+        "React",
+        "TypeScript",
+        "REST APIs",
+        "Databases",
+        "Microservices",
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+      ],
+    },
+  },
 };
-
-
