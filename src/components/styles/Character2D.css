@@ -39,10 +39,12 @@
 }
 
 .character-image {
-  height: 100%;
-  width: auto;
-  max-width: 40vw;
+  width: min(40vw, calc(70vh * 900 / 810));
+  height: auto;
+  aspect-ratio: 900 / 810;
   display: block;
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
   filter: drop-shadow(0 26px 60px rgba(0, 0, 0, 0.55))
     drop-shadow(0 0 42px rgba(194, 164, 255, 0.16));
 }
@@ -52,7 +54,7 @@
     height: 64vh;
   }
   .character-image {
-    max-width: 38vw;
+    width: min(38vw, calc(64vh * 900 / 810));
   }
 }
 
