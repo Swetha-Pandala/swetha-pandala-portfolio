@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import "./styles/Loading.css";
 import { useLoading } from "../context/LoadingProvider";
 
-import Marquee from "react-fast-marquee";
-
 const Loading = ({ percent }: { percent: number }) => {
   const { setIsLoading } = useLoading();
   const [loaded, setLoaded] = useState(false);
@@ -46,7 +44,7 @@ const Loading = ({ percent }: { percent: number }) => {
     <>
       <div className="loading-header">
         <a href="/#" className="loader-title" data-cursor="disable">
-          RedoyanulHaque
+          SwethaPandala
         </a>
         <div className={`loaderGame ${clicked && "loader-out"}`}>
           <div className="loaderGame-container">
@@ -61,10 +59,16 @@ const Loading = ({ percent }: { percent: number }) => {
       </div>
       <div className="loading-screen">
         <div className="loading-marquee">
-          <Marquee>
-            <span>&nbsp; AI Engineer &nbsp;</span> <span>&nbsp; Full Stack Developer &nbsp;</span>
-            <span>&nbsp; AI Engineer &nbsp;</span> <span>&nbsp; Full Stack Developer &nbsp;</span>
-          </Marquee>
+          <div className="loading-marquee-track">
+            {[0, 1].map((group) => (
+              <div className="loading-marquee-group" key={group} aria-hidden={group === 1}>
+                <span>&nbsp; AI Engineer &nbsp;</span>
+                <span>&nbsp; Full Stack Developer &nbsp;</span>
+                <span>&nbsp; Generative AI &nbsp;</span>
+                <span>&nbsp; Agentic Systems &nbsp;</span>
+              </div>
+            ))}
+          </div>
         </div>
         <div
           className={`loading-wrap ${clicked && "loading-clicked"}`}

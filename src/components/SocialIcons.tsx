@@ -1,9 +1,4 @@
-import {
-  FaGithub,
-  FaInstagram,
-  FaLinkedinIn,
-  FaXTwitter,
-} from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
 import { useEffect } from "react";
@@ -12,11 +7,16 @@ import { config } from "../config";
 
 const SocialIcons = () => {
   useEffect(() => {
-    const social = document.getElementById("social") as HTMLElement;
+    const social = document.getElementById("social");
+    if (!social) return;
+
+    const frames: number[] = [];
+    const cleanups: Array<() => void> = [];
 
     social.querySelectorAll("span").forEach((item) => {
       const elem = item as HTMLElement;
-      const link = elem.querySelector("a") as HTMLElement;
+      const link = elem.querySelector("a") as HTMLElement | null;
+      if (!link) return;
 
       const rect = elem.getBoundingClientRect();
       let mouseX = rect.width / 2;
@@ -31,7 +31,7 @@ const SocialIcons = () => {
         link.style.setProperty("--siLeft", `${currentX}px`);
         link.style.setProperty("--siTop", `${currentY}px`);
 
-        requestAnimationFrame(updatePosition);
+        frames.push(requestAnimationFrame(updatePosition));
       };
 
       const onMouseMove = (e: MouseEvent) => {
@@ -48,40 +48,52 @@ const SocialIcons = () => {
       };
 
       document.addEventListener("mousemove", onMouseMove);
+      cleanups.push(() => document.removeEventListener("mousemove", onMouseMove));
 
       updatePosition();
-
-      return () => {
-        elem.removeEventListener("mousemove", onMouseMove);
-      };
     });
+
+    return () => {
+      frames.forEach((id) => cancelAnimationFrame(id));
+      cleanups.forEach((fn) => fn());
+    };
   }, []);
 
   return (
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
-          <a href={config.contact.github} target="_blank" rel="noopener noreferrer">
+          <a
+            href={config.contact.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile"
+          >
             <FaGithub />
           </a>
         </span>
         <span>
-          <a href={config.contact.linkedin} target="_blank" rel="noopener noreferrer">
+          <a
+            href={config.contact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
+          >
             <FaLinkedinIn />
           </a>
         </span>
         <span>
-          <a href={config.contact.twitter} target="_blank" rel="noopener noreferrer">
-            <FaXTwitter />
-          </a>
-        </span>
-        <span>
-          <a href={config.contact.instagram} target="_blank" rel="noopener noreferrer">
-            <FaInstagram />
+          <a href={`mailto:${config.contact.email}`} aria-label="Send an email">
+            <FaEnvelope />
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#">
+      <a
+        className="resume-button"
+        href={config.resumeFile}
+        download="Swetha_Pandala_Resume.pdf"
+        data-cursor="disable"
+      >
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />

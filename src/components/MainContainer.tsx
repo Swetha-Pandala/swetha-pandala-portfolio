@@ -9,14 +9,15 @@ import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import TechStackNew from "./TechStackNew";
+import Credentials from "./Credentials";
+import Resources from "./Resources";
 import CallToAction from "./CallToAction";
 import setSplitText from "./utils/splitText";
 
 const MainContainer = ({ children }: PropsWithChildren) => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
-    window.innerWidth > 1024
+    typeof window !== "undefined" ? window.innerWidth > 1024 : false
   );
-  const [isMobile] = useState<boolean>(window.innerWidth <= 768);
   const [shouldRenderCharacter, setShouldRenderCharacter] = useState(false);
 
   useEffect(() => {
@@ -37,25 +38,26 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     let timeoutId: ReturnType<typeof setTimeout> | undefined;
     let idleId: number | undefined;
     const win = window as Window & {
-      requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
+      requestIdleCallback?: (
+        callback: IdleRequestCallback,
+        options?: IdleRequestOptions
+      ) => number;
       cancelIdleCallback?: (handle: number) => void;
     };
 
     const mountCharacter = () => setShouldRenderCharacter(true);
 
     if (typeof win.requestIdleCallback === "function") {
-      idleId = win.requestIdleCallback(mountCharacter, { timeout: 1500 });
+      idleId = win.requestIdleCallback(mountCharacter, { timeout: 1200 });
     } else {
-      timeoutId = setTimeout(mountCharacter, 1200);
+      timeoutId = setTimeout(mountCharacter, 800);
     }
 
     return () => {
       if (idleId !== undefined && typeof win.cancelIdleCallback === "function") {
         win.cancelIdleCallback(idleId);
       }
-      if (timeoutId !== undefined) {
-        clearTimeout(timeoutId);
-      }
+      if (timeoutId !== undefined) clearTimeout(timeoutId);
     };
   }, []);
 
@@ -64,7 +66,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       <Cursor />
       <Navbar />
       <SocialIcons />
-      {isDesktopView && !isMobile && shouldRenderCharacter && children}
+      {isDesktopView && shouldRenderCharacter && children}
       <div className="container-main">
         <Landing />
         <About />
@@ -72,6 +74,8 @@ const MainContainer = ({ children }: PropsWithChildren) => {
         <Career />
         <Work />
         <TechStackNew />
+        <Credentials />
+        <Resources />
         <CallToAction />
         <Contact />
       </div>

@@ -81,3 +81,22 @@
     font-size: 18px;
   }
 }
+
+/* Four nav items need a little more room than the original three */
+@media only screen and (min-width: 1025px) {
+  .header ul {
+    column-gap: 52px;
+  }
+  .navbar-connect {
+    left: 32%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .header ul {
+    column-gap: 70px;
+  }
+  .navbar-connect {
+    left: 38%;
+  }
+}

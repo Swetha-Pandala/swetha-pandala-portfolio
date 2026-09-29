@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 
 interface Props {
   image: string;
