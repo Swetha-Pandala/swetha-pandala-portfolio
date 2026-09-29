@@ -638,3 +638,9 @@ h2.landing-info-h2 {
     padding-bottom: 0.08em;
   }
 }
+
+/* Split letters must be inline-block so the GSAP roll (y transform) actually applies */
+.landing-section .split-char {
+  display: inline-block;
+  white-space: pre;
+}
