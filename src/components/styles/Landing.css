@@ -644,3 +644,10 @@ h2.landing-info-h2 {
   display: inline-block;
   white-space: pre;
 }
+
+/* Mobile: keep the name clear of the stacked nav links */
+@media only screen and (max-width: 768px) {
+  .landing-intro {
+    padding-top: 120px !important;
+  }
+}
