@@ -640,9 +640,11 @@ h2.landing-info-h2 {
 }
 
 /* Split letters must be inline-block so the GSAP roll (y transform) actually applies */
-.landing-section .split-char {
-  display: inline-block;
-  white-space: pre;
+@media screen and (min-width: 769px) {
+  .landing-section .split-char {
+    display: inline-block;
+    white-space: pre;
+  }
 }
 
 /* Mobile: keep the name clear of the stacked nav links */
