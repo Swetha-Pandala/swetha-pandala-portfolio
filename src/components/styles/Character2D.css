@@ -39,7 +39,7 @@
 }
 
 .character-image {
-  width: min(40vw, calc(70vh * 900 / 810));
+  width: min(48vw, calc(72vh * 900 / 810));
   height: auto;
   aspect-ratio: 900 / 810;
   display: block;
@@ -54,7 +54,7 @@
     height: 64vh;
   }
   .character-image {
-    width: min(38vw, calc(64vh * 900 / 810));
+    width: min(46vw, calc(68vh * 900 / 810));
   }
 }
 
