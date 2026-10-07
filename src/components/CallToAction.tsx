@@ -1,8 +1,12 @@
+import { useCallback, useState } from "react";
 import { handleResumeClick } from "./utils/resumeDownload";
 import { config } from "../config";
+import HireMeModal from "./HireMeModal";
 import "./styles/CallToAction.css";
 
 const CallToAction = () => {
+  const [open, setOpen] = useState(false);
+  const close = useCallback(() => setOpen(false), []);
   return (
     <div className="cta-section">
       <div className="cta-buttons">
@@ -17,16 +21,17 @@ const CallToAction = () => {
           Download Resume →
         </a>
 
-        <a
-          href={config.contact.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
           className="cta-btn cta-btn-hire"
           data-cursor="disable"
+          aria-haspopup="dialog"
         >
           Hire Me →
-        </a>
+        </button>
       </div>
+      <HireMeModal open={open} onClose={close} />
     </div>
   );
 };
