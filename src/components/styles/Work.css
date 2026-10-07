@@ -365,3 +365,5 @@
 }
 .work-circle:hover span, .work-circle:focus-visible span { transform: translate(2px, -2px); }
 .work-circle:focus-visible { outline: 2px solid var(--accentColor); outline-offset: 3px; }
+.work-link-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.work-link-label { font-size: 11px; letter-spacing: 0.5px; color: #adacac; }

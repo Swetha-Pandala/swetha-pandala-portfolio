@@ -71,12 +71,18 @@ const Work = () => {
               <div className="work-info">
                 {"github" in project && (
                   <div className="work-links">
+                    <div className="work-link-item">
                     <a className="work-circle" href={project.github} target="_blank" rel="noopener noreferrer" title="View GitHub" aria-label="View GitHub Repository" data-cursor="disable">
                       <span aria-hidden="true">↗</span>
                     </a>
+                    <span className="work-link-label" aria-hidden="true">GitHub</span>
+                    </div>
+                    <div className="work-link-item">
                     <a className="work-circle" href={project.live} target="_blank" rel="noopener noreferrer" title="Live Preview" aria-label="View Live Project" data-cursor="disable">
                       <span aria-hidden="true">↗</span>
                     </a>
+                    <span className="work-link-label" aria-hidden="true">Live Demo</span>
+                    </div>
                   </div>
                 )}
                 <div className="work-title">
