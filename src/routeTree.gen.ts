@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MyworksRouteImport } from './routes/myworks'
+import { Route as ApiPublicResumeRouteImport } from './routes/api/public/resume'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const MyworksRoute = MyworksRouteImport.update({
   path: '/myworks',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicResumeRoute = ApiPublicResumeRouteImport.update({
+  id: '/api/public/resume',
+  path: '/api/public/resume',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/myworks': typeof MyworksRoute
+  '/api/public/resume': typeof ApiPublicResumeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/myworks': typeof MyworksRoute
+  '/api/public/resume': typeof ApiPublicResumeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/myworks': typeof MyworksRoute
+  '/api/public/resume': typeof ApiPublicResumeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/myworks'
+  fullPaths: '/' | '/myworks' | '/api/public/resume'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/myworks'
-  id: '__root__' | '/' | '/myworks'
+  to: '/' | '/myworks' | '/api/public/resume'
+  id: '__root__' | '/' | '/myworks' | '/api/public/resume'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   MyworksRoute: typeof MyworksRoute
+  ApiPublicResumeRoute: typeof ApiPublicResumeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MyworksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/resume': {
+      id: '/api/public/resume'
+      path: '/api/public/resume'
+      fullPath: '/api/public/resume'
+      preLoaderRoute: typeof ApiPublicResumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   MyworksRoute: MyworksRoute,
+  ApiPublicResumeRoute: ApiPublicResumeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
