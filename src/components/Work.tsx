@@ -69,6 +69,16 @@ const Work = () => {
           {config.projects.slice(0, 5).map((project, index) => (
             <div className="work-box" key={project.id}>
               <div className="work-info">
+                {"github" in project && (
+                  <div className="work-links">
+                    <a className="work-circle" href={project.github} target="_blank" rel="noopener noreferrer" title="View GitHub" aria-label="View GitHub Repository" data-cursor="disable">
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                    <a className="work-circle" href={project.live} target="_blank" rel="noopener noreferrer" title="Live Preview" aria-label="View Live Project" data-cursor="disable">
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                )}
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
 
