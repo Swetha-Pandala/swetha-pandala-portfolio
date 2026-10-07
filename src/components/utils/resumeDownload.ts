@@ -1,8 +1,12 @@
 import type { MouseEvent } from "react";
 
-// Direct <a download> works on the live site. Embedded previews (iframes) often
-// block downloads silently, so there we open the PDF in a new tab instead.
+const DOWNLOAD_URL = "/api/public/resume";
+
+// Opens a download endpoint that forces "save as file". Inside embedded
+// previews (iframes block downloads) it opens in a new top-level tab, which
+// immediately saves the file; on the live site it downloads in place.
 export function handleResumeClick(e: MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
   let embedded = false;
   try {
     embedded = window.self !== window.top;
@@ -10,7 +14,9 @@ export function handleResumeClick(e: MouseEvent<HTMLAnchorElement>) {
     embedded = true;
   }
   if (embedded) {
-    e.preventDefault();
-    window.open(e.currentTarget.href, "_blank", "noopener,noreferrer");
+    const w = window.open(DOWNLOAD_URL, "_blank");
+    if (!w) window.location.href = DOWNLOAD_URL;
+    return;
   }
+  window.location.href = DOWNLOAD_URL;
 }
