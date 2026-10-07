@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { sendContactMessage } from "../lib/contact.functions";
+import { lenis } from "./Navbar";
 import "./styles/HireMeModal.css";
 
 type Props = { open: boolean; onClose: () => void };
@@ -18,7 +19,6 @@ const HireMeModal = ({ open, onClose }: Props) => {
     const prevFocus = document.activeElement as HTMLElement | null;
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
     lenis?.stop();
     setTimeout(() => dialogRef.current?.querySelector<HTMLElement>("input")?.focus(), 30);
 
