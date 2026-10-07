@@ -11,7 +11,7 @@ const HireMeModal = ({ open, onClose }: Props) => {
   const send = useServerFn(sendContactMessage);
   const dialogRef = useRef<HTMLDivElement>(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<Partial<Record<"name" | "email" | "message", string>>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const HireMeModal = ({ open, onClose }: Props) => {
   if (!open) return null;
 
   const validate = () => {
-    const e: Record<string, string> = {};
+    const e: Partial<Record<"name" | "email" | "message", string>> = {};
     if (!form.name.trim()) e.name = "Please enter your name.";
     if (!form.email.trim()) e.email = "Please enter your email address.";
     else if (!EMAIL_RE.test(form.email.trim())) e.email = "Please enter a valid email address.";
