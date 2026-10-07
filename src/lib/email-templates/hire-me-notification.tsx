@@ -25,7 +25,7 @@ const Email = ({ name = 'Someone', email = '', message = '' }: Props) => (
 
 export const template = {
   component: Email,
-  subject: (d: Record<string, any>) => `New Hire Me message from ${d.name ?? 'your portfolio'}`,
+  subject: (d: Record<string, any>) => `New Hire Me message from ${d['name'] ?? 'your portfolio'}`,
   displayName: 'Hire Me notification',
   to: 'swethapandala799@gmail.com',
   previewData: { name: 'Jane Doe', email: 'jane@example.com', message: 'Hi Swetha, I would love to talk about a role.' },
