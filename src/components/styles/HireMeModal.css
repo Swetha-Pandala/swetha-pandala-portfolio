@@ -1,0 +1,76 @@
+.hire-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(5, 3, 6, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: hireFade 0.25s ease;
+}
+.hire-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  background: var(--backgroundColor);
+  border: 1px solid rgba(194, 164, 255, 0.3);
+  border-radius: 15px;
+  padding: 36px 30px 30px;
+  box-shadow: 0 20px 60px rgba(194, 164, 255, 0.15);
+  animation: hireIn 0.3s ease;
+  color: #eae5ec;
+}
+.hire-dialog h3 { font-size: 28px; font-weight: 500; margin: 0 0 20px; }
+.hire-dialog h3 span { color: var(--accentColor); }
+.hire-dialog form { display: flex; flex-direction: column; }
+.hire-dialog label { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #adacac; margin: 14px 0 6px; }
+.hire-dialog input,
+.hire-dialog textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: inherit;
+  font: inherit;
+  font-size: 15px;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+.hire-dialog input:focus,
+.hire-dialog textarea:focus { outline: none; border-color: var(--accentColor); box-shadow: 0 0 0 2px rgba(194, 164, 255, 0.25); }
+.hire-dialog [aria-invalid="true"] { border-color: #ff8a8a; }
+.hire-err { color: #ff9b9b; font-size: 13px; margin: 6px 0 0; }
+.hire-ok { color: var(--accentColor); font-size: 14px; margin: 14px 0 0; line-height: 1.5; }
+.hire-submit {
+  margin-top: 22px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+  background: var(--accentColor);
+  color: #000;
+  font: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+}
+.hire-submit:hover:not(:disabled) { transform: scale(1.03); box-shadow: 0 10px 30px rgba(194, 164, 255, 0.4); }
+.hire-submit:disabled { opacity: 0.6; cursor: wait; }
+.hire-submit:focus-visible, .hire-close:focus-visible { outline: 2px solid var(--accentColor); outline-offset: 3px; }
+.hire-close {
+  position: absolute; top: 12px; right: 12px;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent; color: inherit; font-size: 22px; line-height: 1;
+  cursor: pointer; transition: border-color 0.3s, color 0.3s;
+}
+.hire-close:hover { border-color: var(--accentColor); color: var(--accentColor); }
+@keyframes hireFade { from { opacity: 0; } }
+@keyframes hireIn { from { opacity: 0; transform: translateY(16px) scale(0.98); } }
+@media (prefers-reduced-motion: reduce) { .hire-overlay, .hire-dialog { animation: none; } }
+@media (max-width: 480px) { .hire-dialog { padding: 32px 18px 22px; } .hire-dialog h3 { font-size: 22px; } }

@@ -121,14 +121,16 @@ export const config = {
   projects: [
     {
       id: 1,
-      title: "Enterprise Multi-Agent Financial Assistant",
-      category: "Agentic AI / RAG",
+      title: "Multi-Agent Financial Intelligence Platform",
+      category: "Agentic AI / RAG / Financial Intelligence",
       technologies:
-        "AWS Bedrock AgentCore, Strands Agents, LangGraph, Bedrock Knowledge Bases, OpenSearch Serverless, LangSmith, Python, FastAPI",
+        "Python, FastAPI, React, TypeScript, LangGraph, LangChain, RAG, LLMs, PostgreSQL, pgvector, Multi-Agent Orchestration, Tool Calling, Guardrails, Evaluation, Docker",
       image: projectMultiAgent,
       description:
-        "A production-oriented multi-agent financial assistant with specialized retrieval, analysis and report-generation agents coordinated through LangGraph and grounded by enterprise RAG over financial documents. Answer quality, latency and cost are tracked with LangSmith tracing and automated evaluations.",
+        "An AI-powered financial intelligence platform that uses multi-agent orchestration, RAG, tool calling and structured and unstructured data retrieval to analyze financial information and generate contextual, explainable insights through a modern full-stack application.",
       link: "",
+      github: "https://github.com/Swetha-Pandala/fin-mind-weave",
+      live: "https://fin-mind-weave.lovable.app/",
     },
     {
       id: 2,
