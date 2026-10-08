@@ -455,7 +455,6 @@
 }
 /* Click-to-expand panels */
 .what-content-in p { padding-right: 34px; }
-.what-content-in { position: relative; }
 .what-content .what-extra {
   max-height: 0; opacity: 0; overflow: hidden;
   transition: max-height 0.5s ease, opacity 0.35s ease;
