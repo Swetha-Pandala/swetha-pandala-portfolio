@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Swetha Pandala | Generative AI & Full-Stack Engineer" },
+      { title: "Swetha Pandala | AI Engineer & Full-Stack Developer" },
       {
         name: "description",
         content:
           "Generative AI and Full-Stack Engineer specializing in agentic AI, RAG, LLM applications, Python, FastAPI, Java, Spring Boot and AWS.",
       },
       { name: "author", content: "Swetha Pandala" },
-      { property: "og:title", content: "Swetha Pandala | Generative AI & Full-Stack Engineer" },
+      { property: "og:title", content: "Swetha Pandala | AI Engineer & Full-Stack Developer" },
       {
         property: "og:description",
         content:
