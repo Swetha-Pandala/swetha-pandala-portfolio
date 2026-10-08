@@ -21,7 +21,7 @@ export const config = {
   about: {
     title: "About Me",
     description:
-      "I'm a Full Stack Software Engineer and Generative AI Developer with around 7 years of experience building scalable enterprise applications, AI-native systems and cloud platforms across financial services and healthcare. I design multi-agent and RAG architectures with LangChain, LangGraph and AWS Bedrock, and ship them behind production Python FastAPI and Java Spring Boot services. I care about grounded answers, measurable evaluation and clean systems — instrumenting agent workflows with LangSmith for tracing, accuracy, latency and cost. Alongside the AI work I build React and TypeScript interfaces, model relational and vector data stores, and deploy cloud-native workloads on AWS with Docker, Kubernetes and full CI/CD.",
+      "I’m a Python and AI/ML Engineer building production-grade Generative AI, RAG, and agentic systems. My work combines Python backend engineering, FastAPI, LangGraph, LangChain, PyTorch, TensorFlow, vector databases, and cloud deployment with strong enterprise experience in Java, Spring Boot, React, APIs, databases, and distributed systems. I focus on building AI applications that are scalable, reliable, observable, and production-ready.",
   },
   experiences: [
     {
@@ -30,7 +30,7 @@ export const config = {
       period: "2024 - Present",
       location: "Whippany, New Jersey",
       description:
-        "Architecting multi-agent systems on AWS Bedrock with planner, retriever and executor agents orchestrated through LangGraph, grounded by Bedrock Knowledge Bases and OpenSearch Serverless, and exposed through FastAPI and Spring Boot services across enterprise financial platforms.",
+        "Built Python-based GenAI and agentic AI services using FastAPI, LangChain, and LangGraph, with RAG, tool calling, multi-agent orchestration, and AWS Bedrock. Developed production APIs, evaluation workflows, guardrails, and observability for enterprise AI applications.",
       responsibilities: [
         "Designed stateful multi-agent orchestration with LangChain and LangGraph, including conditional routing and human-in-the-loop checkpoints",
         "Built production RAG pipelines on Amazon Bedrock Knowledge Bases with OpenSearch Serverless vector collections for citation-backed answers",
@@ -50,12 +50,12 @@ export const config = {
       ],
     },
     {
-      position: "Software Engineer",
+      position: "Python Software Engineer",
       company: "Morgan Stanley",
       period: "2022 - 2024",
       location: "New York, New York",
       description:
-        "Built Java and Spring Boot microservices alongside Python services for a high-volume financial platform, refactoring legacy monolith modules, adding asynchronous processing with Celery and Redis, and running everything on Docker, Kubernetes/EKS and Kafka-backed event pipelines.",
+        "Developed Python backend services and APIs for high-volume financial workflows using FastAPI, Flask, Celery, Redis, PostgreSQL, and MongoDB. Built asynchronous processing, data pipelines, AI-assisted workflows, and containerized services deployed on Kubernetes/EKS.",
       responsibilities: [
         "Decomposed legacy Java monolith modules into Spring Boot and Python microservices, cutting average service startup time by 60%",
         "Implemented Celery task queues with a Redis broker for scheduled reports, notifications and transaction retry logic",
@@ -76,12 +76,12 @@ export const config = {
       ],
     },
     {
-      position: "Java/Python Full Stack Developer",
+      position: "Python Full Stack Developer",
       company: "Optum",
       period: "2020 - 2021",
       location: "India",
       description:
-        "Delivered full stack banking and healthcare analytics features with Spring Boot, Python and React.js, securing APIs with OAuth 2.0 and JWT and tuning PostgreSQL and MongoDB layers for 40% faster queries.",
+        "Built Python full-stack applications using Flask/Django, React, PostgreSQL, MongoDB, and Redis for healthcare analytics and enterprise workflows. Developed APIs, data-processing services, ML integrations, and performance-optimized backend systems.",
       responsibilities: [
         "Built Spring Boot microservices and Python services using clean, layered architecture",
         "Optimized data models and indexing across PostgreSQL and MongoDB",
@@ -95,7 +95,7 @@ export const config = {
       period: "2020",
       location: "India",
       description:
-        "Developed reusable React and Angular UI components backed by Python and Java services, and tuned SQL across MySQL and PostgreSQL to cut reporting response times by 20–30%.",
+        "Developed reusable React and Angular interfaces integrated with Python and Java backend services, API-driven workflows, and optimized MySQL/PostgreSQL queries for faster enterprise reporting.",
       responsibilities: [
         "Built reusable front-end component libraries for enterprise applications",
         "Implemented backend CRUD and workflow services integrated with MySQL and MongoDB",
@@ -291,17 +291,21 @@ export const config = {
   skills: {
     develop: {
       title: "AI ENGINEER",
-      description: "Generative and agentic AI systems in production",
+      description: "Generative and Agentic AI systems in production",
       details:
-        "Designing multi-agent orchestration and LLM applications with LangChain, LangGraph and AWS Bedrock. Building RAG pipelines over vector retrieval, serving them through FastAPI, and measuring quality with LLM evaluation and LangSmith observability.",
-      tools: ["Generative AI", "Agentic AI", "RAG", "LangChain", "LangGraph", "AWS Bedrock", "LLM Evaluation"],
+        "Building production-grade GenAI, RAG, and agentic AI systems using Python, LangGraph, LangChain, and modern LLM platforms.",
+      more:
+        "Designing intelligent workflows with tool calling, multi-agent orchestration, semantic retrieval, evaluation, and guardrails for enterprise AI applications.",
+      tools: ["Python", "LangGraph", "LangChain", "RAG", "AWS Bedrock", "PyTorch", "LLM Evaluation"],
     },
     design: {
       title: "FULL-STACK",
       description: "Scalable enterprise applications end to end",
       details:
-        "Building microservices in Java and Spring Boot alongside Python and FastAPI, backed by well-modelled relational and NoSQL databases, with React and TypeScript interfaces on top and AWS, Docker, Kubernetes and CI/CD underneath.",
-      tools: ["Java", "Spring Boot", "Python", "FastAPI", "React", "AWS", "Kubernetes"],
+        "Building scalable enterprise applications with Python, Java, APIs, modern frontends, and cloud-native architecture.",
+      more:
+        "Developing backend services with FastAPI and Spring Boot, API-driven React interfaces, database integrations, and distributed systems across cloud environments.",
+      tools: ["Python", "FastAPI", "Java", "Spring Boot", "React", "TypeScript", "PostgreSQL"],
     },
   },
 };
