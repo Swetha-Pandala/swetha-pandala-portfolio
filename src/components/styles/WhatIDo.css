@@ -467,3 +467,13 @@ button.what-arrow { background: transparent; cursor: pointer; padding: 0; positi
 button.what-arrow:focus-visible { outline: 2px solid var(--accentColor); outline-offset: 3px; }
 .what-content-active { min-height: 67%; }
 @media (prefers-reduced-motion: reduce) { .what-content .what-extra { transition: none; } }
+/* Let panels grow naturally when expanded */
+.what-box-in { height: auto !important; }
+.what-content, .what-content-active, .what-content.what-sibling { height: auto; min-height: 0 !important; }
+.what-content-in { height: auto; overflow: visible; }
+.what-content .what-content-in > p, .what-extra p { padding-right: 48px; }
+.what-content .what-content-in > p { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.what-content-active .what-content-in > p { -webkit-line-clamp: unset; }
+.what-extra { padding-bottom: 28px; }
+.what-content-flex { padding-right: 40px; }
+.what-border2 svg { height: 100%; }
